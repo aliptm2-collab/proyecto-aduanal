@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cotizar Envío — Proyecto Aduanal</title>
+<meta name="description" content="Solicita una cotización de transporte transfronterizo US-MX. Respondemos en menos de 24 horas.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-mark"><span>PA</span></div><div class="nav-logo-text">Proyecto Aduanal<small>Transporte & Comercializadora</small></div></a>
+    <div class="nav-links"><a href="index.html">Inicio</a><a href="transporte.html">Transporte</a><a href="comercializadora.html">Comercializadora</a><a href="industrias.html">Industrias</a><a href="como-trabajamos.html">Proceso</a><a href="cotiza.html" class="nav-cta">Cotizar Envío</a></div>
+    <button class="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-mobile-menu"><a href="index.html">Inicio</a><a href="transporte.html">Transporte</a><a href="comercializadora.html">Comercializadora</a><a href="industrias.html">Industrias</a><a href="como-trabajamos.html">Proceso</a><a href="cotiza.html">Cotizar Envío</a></div>
+
+<section class="page-hero" style="padding-bottom:2rem">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="section-tag reveal"><span class="line"></span>Cotización</div>
+      <h1 class="reveal reveal-d1">Cotiza tu <em>envío</em></h1>
+      <p class="lead reveal reveal-d2">Llena el formulario y te respondemos en menos de 24 horas con una propuesta a la medida de tu operación.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="padding-top:2rem">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 380px;gap:2.5rem;align-items:start">
+
+      <!-- FORM -->
+      <div class="form-card reveal">
+        <form id="quoteForm">
+          <!-- Contact Info -->
+          <div class="form-section-title">Información de contacto</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+            </div>
+            <div class="form-group">
+              <label for="empresa">Empresa</label>
+              <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa">
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com">
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono / WhatsApp *</label>
+              <input type="tel" id="telefono" name="telefono" required placeholder="+52 664 ...">
+            </div>
+          </div>
+
+          <!-- Shipment Info -->
+          <div class="form-section-title">Datos del embarque</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="origen">Origen (ciudad) *</label>
+              <input type="text" id="origen" name="origen" required placeholder="Ej: San Diego, CA">
+            </div>
+            <div class="form-group">
+              <label for="destino">Destino (ciudad) *</label>
+              <input type="text" id="destino" name="destino" required placeholder="Ej: Tijuana, BC">
+            </div>
+            <div class="form-group full">
+              <label for="tipo_carga">Tipo de carga (descripción) *</label>
+              <input type="text" id="tipo_carga" name="tipo_carga" required placeholder="Ej: Materiales de empaque, 12 pallets">
+            </div>
+            <div class="form-group">
+              <label for="peso">Peso total</label>
+              <input type="text" id="peso" name="peso" placeholder="Ej: 15,000 kg">
+            </div>
+            <div class="form-group">
+              <label for="dimensiones">Dimensiones / # pallets</label>
+              <input type="text" id="dimensiones" name="dimensiones" placeholder="Ej: 24 pallets std">
+            </div>
+            <div class="form-group">
+              <label for="modalidad">Modalidad</label>
+              <select id="modalidad" name="modalidad">
+                <option value="">Seleccionar...</option>
+                <option value="ftl">FTL (Carga completa)</option>
+                <option value="ltl">LTL (Carga parcial)</option>
+                <option value="expedited">Expedited</option>
+                <option value="dedicated">Dedicated</option>
+                <option value="no-se">No sé / Necesito ayuda</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fecha">Fecha de recolección</label>
+              <input type="date" id="fecha" name="fecha">
+            </div>
+            <div class="form-group">
+              <label for="cruce">¿Cruce US–MX?</label>
+              <select id="cruce" name="cruce">
+                <option value="si">Sí</option>
+                <option value="no">No — Solo MX o solo US</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="comercializadora">¿Necesitas comercializadora?</label>
+              <select id="comercializadora-toggle" name="comercializadora">
+                <option value="no">No</option>
+                <option value="si">Sí — Importación a nombre de tercero</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Comercializadora Fields (hidden by default) -->
+          <div id="comercializadora-fields" class="form-grid" style="display:none">
+            <div class="form-section-title">Datos de comercializadora</div>
+            <div class="form-group">
+              <label for="padron">¿Cuentas con padrón de importadores?</label>
+              <select id="padron" name="padron">
+                <option value="">Seleccionar...</option>
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+                <option value="no-se">No sé</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="rfc">RFC (si lo tienes)</label>
+              <input type="text" id="rfc" name="rfc" placeholder="XAXX010101000">
+            </div>
+            <div class="form-group full">
+              <label for="fraccion">Tipo de mercancía / fracción arancelaria</label>
+              <input type="text" id="fraccion" name="fraccion" placeholder="Descripción o fracción si la conoces">
+            </div>
+          </div>
+
+          <!-- Comments -->
+          <div class="form-grid" style="margin-top:1rem">
+            <div class="form-group full">
+              <label for="comentarios">Comentarios / restricciones</label>
+              <textarea id="comentarios" name="comentarios" placeholder="Horarios especiales, tipo de equipo requerido, restricciones, etc."></textarea>
+            </div>
+          </div>
+
+          <div style="margin-top:1.5rem;display:flex;gap:.8rem;flex-wrap:wrap">
+            <button type="submit" class="btn btn-primary">
+              Enviar cotización
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </button>
+            <a href="#" class="btn btn-whatsapp">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.75.75 0 00.917.918l4.462-1.494A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+              Cotizar por WhatsApp
+            </a>
+          </div>
+        </form>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="form-sidebar reveal reveal-d1">
+        <h3>¿Cómo funciona?</h3>
+        <p>Llena el formulario y nuestro equipo te contacta con una propuesta. Sin compromiso.</p>
+
+        <div class="form-sidebar-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div class="info"><strong>Respuesta rápida</strong>Respondemos en menos de 24 horas hábiles.</div>
+        </div>
+        <div class="form-sidebar-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+          <div class="info"><strong>Sin compromiso</strong>Cotizar no te obliga a nada. Revisas y decides.</div>
+        </div>
+        <div class="form-sidebar-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+          <div class="info"><strong>Contacto directo</strong>Si prefieres llamar o escribir por WhatsApp, también funciona.</div>
+        </div>
+
+        <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1)">
+          <div class="form-sidebar-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+            <div class="info"><strong>Cobertura</strong>San Diego, Otay, Tijuana, Mexicali, Ensenada, Nogales y más.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo"><div class="nav-logo-mark"><span>PA</span></div><div class="nav-logo-text">Proyecto Aduanal<small>Transporte & Comercializadora</small></div></a><p>Empresa de transporte y logística enfocada en movimientos transfronterizos entre Estados Unidos y México.</p></div>
+      <div class="footer-col"><h4>Servicios</h4><a href="transporte.html">Transporte US–MX</a><a href="comercializadora.html">Comercializadora</a></div>
+      <div class="footer-col"><h4>Cobertura</h4><a href="#">Tijuana</a><a href="#">Mexicali</a><a href="#">Ensenada</a><a href="#">Nogales</a></div>
+      <div class="footer-col"><h4>Empresa</h4><a href="como-trabajamos.html">Cómo trabajamos</a><a href="industrias.html">Industrias</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Proyecto Aduanal. Todos los derechos reservados.</p><div class="footer-legal-links"><a href="#">Aviso de Privacidad</a><a href="#">Términos</a></div></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
