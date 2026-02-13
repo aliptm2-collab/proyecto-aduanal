@@ -90,4 +90,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ── TMS Portal Link (injected across all pages) ──
+  const TMS_URL = 'https://tms-proyecto-aduanal.vercel.app/login';
+
+  // Desktop nav — insert "Portal Clientes" before the CTA button
+  const navLinks = document.querySelector('.nav-links');
+  const navCta = navLinks ? navLinks.querySelector('.nav-cta') : null;
+  if (navLinks && navCta) {
+    const portalLink = document.createElement('a');
+    portalLink.href = TMS_URL;
+    portalLink.textContent = 'Portal Clientes';
+    portalLink.target = '_blank';
+    navLinks.insertBefore(portalLink, navCta);
+  }
+
+  // Mobile menu — insert "Portal Clientes" before "Cotizar Envío"
+  const mobileNav = document.querySelector('.nav-mobile-menu');
+  if (mobileNav) {
+    const mobileLinks = mobileNav.querySelectorAll('a');
+    const mobileCta = [...mobileLinks].find(a => a.textContent.includes('Cotizar'));
+    const mobilePortal = document.createElement('a');
+    mobilePortal.href = TMS_URL;
+    mobilePortal.textContent = 'Portal Clientes';
+    mobilePortal.target = '_blank';
+    if (mobileCta) {
+      mobileNav.insertBefore(mobilePortal, mobileCta);
+    } else {
+      mobileNav.appendChild(mobilePortal);
+    }
+  }
+
+  // Footer — add admin access link
+  const footerLegal = document.querySelector('.footer-legal-links');
+  if (footerLegal) {
+    const adminLink = document.createElement('a');
+    adminLink.href = TMS_URL;
+    adminLink.textContent = 'Administración';
+    adminLink.target = '_blank';
+    adminLink.style.cssText = 'opacity:0.5;font-size:12px;';
+    footerLegal.appendChild(adminLink);
+  }
+
 });
